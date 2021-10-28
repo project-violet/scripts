@@ -6,7 +6,7 @@
 // Output: $result [Map] - Image List, Thumbnail List
 
 function create_download_url(id) {
-  return "https://ltn.hitomi.la/galleries" + id + ".js";
+  return "https://ltn.hitomi.la/galleries/" + id + ".js";
 }
 
 function hitomi_get_image_list(id, gg) {
