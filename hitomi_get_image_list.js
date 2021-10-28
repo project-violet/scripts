@@ -32,7 +32,7 @@ function hitomi_get_image_list(id, gg) {
     }
     if (rr["haswebp"] == 0 || rr["haswebp"] == null) {
       result.push(
-        `https://${subdomainx}b.hitomi.la/images/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.${rr['name'].slice(-1)[0]}`
+        `https://${subdomainx}b.hitomi.la/images/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.${rr['name'].split('.').slice(-1)[0]}`
       );
     } else if (hash == "")
       result.push(
