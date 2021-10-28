@@ -32,24 +32,24 @@ function hitomi_get_image_list(id, gg) {
     }
     if (rr["haswebp"] == 0 || rr["haswebp"] == null) {
       result.push(
-        `https://\${subdomainx}b.hitomi.la/images/\${postfix[2]}/\${postfix[0]}\${postfix[1]}/\${hash}.\${rr['name'].split('.')[-1]}`
+        `https://${subdomainx}b.hitomi.la/images/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.${rr['name'].split('.')[-1]}`
       );
     } else if (hash == "")
       result.push(
-        `https://\${subdomainx}a.hitomi.la/webp/\${rr[\'name\']}.webp`
+        `https://${subdomainx}a.hitomi.la/webp/${rr['name']}.webp`
       );
     else if (hash.length < 3)
-      result.push(`https://\${subdomainx}a.hitomi.la/webp/\${hash}.webp`);
+      result.push(`https://${subdomainx}a.hitomi.la/webp/${hash}.webp`);
     else {
       result.push(
-        `https://\${subdomainx}a.hitomi.la/webp/\${postfix[2]}/\${postfix[0]}\${postfix[1]}/\${hash}.webp`
+        `https://${subdomainx}a.hitomi.la/webp/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
       );
     }
     btresult.push(
-      `https://tn.hitomi.la/bigtn/\${postfix[2]}/\${postfix[0]}\${postfix[1]}/\${hash}.jpg`
+      `https://tn.hitomi.la/bigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
     );
     stresult.push(
-      `https://\${subdomainx}tn.hitomi.la/smalltn/\${postfix[2]}/\${postfix[0]}\${postfix[1]}/\${hash}.jpg`
+      `https://${subdomainx}tn.hitomi.la/smalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
     );
   }
   return { btresult: btresult, stresult: stresult, result: result };
