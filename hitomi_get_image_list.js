@@ -3,7 +3,7 @@
 //
 // Script Name: hitomi_get_image_list.js
 // Input:  $id     [int] - Hitomi.la Article Id
-// Output: $result [Map] - Image List, Thumbnail List
+// Output: $result [Map] - Image List, Thumbnail List 
 
 function create_download_url(id) {
   return "https://ltn.hitomi.la/galleries/" + id + ".js";
