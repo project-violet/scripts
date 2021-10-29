@@ -27,7 +27,7 @@ function hitomi_get_image_list(id, gg) {
     x = parseInt(postfix[0] + postfix[1], 16);
     if (!isNaN(x)) {
       var o = 0;
-      if (x < 0x7a) o = 1;
+      if (x < 0x7b) o = 1;
       subdomainx = String.fromCharCode(97 + o);
     }
     if (rr["haswebp"] == 0 || rr["haswebp"] == null) {
