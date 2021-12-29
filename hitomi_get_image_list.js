@@ -326,9 +326,7 @@ function hitomi_get_image_list(id, gg) {
   files = JSON.parse(gg.substr(gg.indexOf("=") + 1))["files"];
 // function test(id, files) {
   number_of_frontends = 3;
-  subdomain = String.fromCharCode(
-    97 + (id.charCodeAt(id.length - 1) % number_of_frontends)
-  );
+  subdomain = 'a';
   btresult = [];
   stresult = [];
   result = [];
