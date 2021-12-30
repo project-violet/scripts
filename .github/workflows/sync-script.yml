@@ -1,0 +1,31 @@
+name: Sync Script
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  sched-job-0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Download
+        run: | 
+          rm -f gg.js
+          wget https://ltn.hitomi.la/gg.js
+      - name: A
+        run: |
+          git config --local user.email "violet.dev.master@gmail.com"
+          git config --local user.name "violet-dev"
+          git config --global pull.rebase false
+          git add gg.js
+          git commit -m "update gg"
+          git pull
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          branch: 'main'
+          github_token: $ 
