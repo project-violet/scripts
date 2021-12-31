@@ -12,16 +12,21 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: main
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
       - name: Download
         run: | 
           rm -f gg.js
           wget https://ltn.hitomi.la/gg.js
+          python3 sync.py
       - name: A
         run: |
           git config --local user.email "violet.dev.master@gmail.com"
           git config --local user.name "violet-dev"
           git config --global pull.rebase false
           git add gg.js
+          git add hitomi_get_image_list_v2.js
           git commit -m "update gg"
           git pull
       - name: Push
