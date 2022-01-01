@@ -28,6 +28,7 @@ jobs:
           git add gg.js
           git add hitomi_get_image_list.js
           git add hitomi_get_image_list_v2.js
+          git add hitomi_get_image_list_v3.js
           git commit -m "update gg"
           git pull
       - name: Push
