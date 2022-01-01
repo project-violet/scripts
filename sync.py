@@ -23,5 +23,17 @@ def syncv2():
     f.write(r)
     f.close()
 
+def syncv3():
+    f = open('hitomi_get_image_list_v3_model.js', 'r')
+    gg = open('gg.js', 'r')
+
+    r = f.read().replace("%%1%", gg.read())
+
+    f.close()
+    f = open('hitomi_get_image_list_v3.js', 'w+')
+    f.write(r)
+    f.close()
+
 syncv1()
 syncv2()
+syncv3()
