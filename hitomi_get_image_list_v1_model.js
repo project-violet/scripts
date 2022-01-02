@@ -9,7 +9,7 @@ function create_download_url(id) {
   return "https://ltn.hitomi.la/galleries/" + id + ".js";
 }
 
-var %%2%
+%%2%
 var %%1%
 
 function hitomi_get_image_list(id, ginfo) {
