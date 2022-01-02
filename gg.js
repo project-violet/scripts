@@ -1988,7 +1988,6 @@ case 1200:
 o =  1;break;
 default: o = 0;
 }
-if (typeof window === 'undefined') { return 3; }
 return o;
 },
 s: function(h) { var m = /(..)(.)$/.exec(h); return parseInt(m[2]+m[1], 16).toString(10); },
