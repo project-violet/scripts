@@ -9,6 +9,8 @@ function create_download_url(id) {
   return "https://ltn.hitomi.la/galleries/" + id + ".js";
 }
 
+var window = 1;
+
 var gg = { m: function(g) {
 var o = 0;
 switch (g) {
