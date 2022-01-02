@@ -7,7 +7,7 @@ def syncv1():
     gv = open('gv.js', 'r')
 
     r = f.read().replace("%%1%", gg.read())
-    r = f.read().replace("%%2%", gv.read())
+    r = r.replace("%%2%", gv.read())
 
     f.close()
     f = open('hitomi_get_image_list.js', 'w+')
@@ -20,7 +20,7 @@ def syncv2():
     gv = open('gv.js', 'r')
 
     r = f.read().replace("%%1%", gg.read())
-    r = f.read().replace("%%2%", gv.read())
+    r = r.replace("%%2%", gv.read())
 
     f.close()
     f = open('hitomi_get_image_list_v2.js', 'w+')
@@ -33,7 +33,7 @@ def syncv3():
     gv = open('gv.js', 'r')
 
     r = f.read().replace("%%1%", gg.read())
-    r = f.read().replace("%%2%", gv.read())
+    r = r.replace("%%2%", gv.read())
 
     f.close()
     f = open('hitomi_get_image_list_v3.js', 'w+')
