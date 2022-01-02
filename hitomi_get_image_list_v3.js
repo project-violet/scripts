@@ -10,6 +10,7 @@ function create_download_url(id) {
 }
 
 var window = 1;
+var localStorage  = 1;
 
 var gg = { m: function(g) {
 var o = 0;
