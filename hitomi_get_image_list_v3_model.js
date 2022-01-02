@@ -11,6 +11,7 @@ function create_download_url(id) {
 
 var window = 1;
 
+var %%2%
 var %%1%
 
 function hitomi_get_image_list() {
