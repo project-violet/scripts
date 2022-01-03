@@ -220,8 +220,6 @@ var openDatabase = {};
 var webkitRequestFileSystem = {};
 var webkitResolveLocalFileSystemURL = {};
 var cr = {};
-var JSCompiler_renameProperty = {};
-var ShadyCSS = {};
 
 var gg = { m: function(g) {
 var o = 0;

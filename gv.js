@@ -209,5 +209,3 @@ var openDatabase = {};
 var webkitRequestFileSystem = {};
 var webkitResolveLocalFileSystemURL = {};
 var cr = {};
-var JSCompiler_renameProperty = {};
-var ShadyCSS = {};
