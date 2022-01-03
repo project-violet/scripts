@@ -12,8 +12,6 @@ function create_download_url(id) {
 %%2%
 var %%1%
 
-document.title="Hitomi.la";
-
 function hitomi_get_image_list(id, ginfo) {
   if (ginfo.startsWith("<html>")) return null;
   files = JSON.parse(ginfo.substr(ginfo.indexOf("=") + 1))["files"];

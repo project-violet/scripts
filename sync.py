@@ -1,13 +1,19 @@
 # This source code is a part of Project Violet.
 # Copyright (C) 2021. violet-team. Licensed under the Apache-2.0 License.
 
+def replace(gg):
+    gg = gg.replace('"use strict";', '')
+    gg = gg.replace('return 3;', 'return o;')
+    return gg
+
 def syncv1():
     f = open('hitomi_get_image_list_v1_model.js', 'r')
     gg = open('gg.js', 'r')
-    gv = open('gv.js', 'r')
+    # gv = open('gv.js', 'r')
 
-    r = f.read().replace("%%1%", gg.read())
-    r = r.replace("%%2%", gv.read())
+    r = f.read().replace("%%1%", replace(gg.read()))
+    # r = r.replace("%%2%", gv.read())
+    r = r.replace("%%2%", '')
 
     f.close()
     f = open('hitomi_get_image_list.js', 'w+')
@@ -17,10 +23,11 @@ def syncv1():
 def syncv2():
     f = open('hitomi_get_image_list_v2_model.js', 'r')
     gg = open('gg.js', 'r')
-    gv = open('gv.js', 'r')
+    # gv = open('gv.js', 'r')
 
-    r = f.read().replace("%%1%", gg.read())
-    r = r.replace("%%2%", gv.read())
+    r = f.read().replace("%%1%", replace(gg.read()))
+    # r = r.replace("%%2%", gv.read())
+    r = r.replace("%%2%", '')
 
     f.close()
     f = open('hitomi_get_image_list_v2.js', 'w+')
@@ -30,10 +37,11 @@ def syncv2():
 def syncv3():
     f = open('hitomi_get_image_list_v3_model.js', 'r')
     gg = open('gg.js', 'r')
-    gv = open('gv.js', 'r')
+    # gv = open('gv.js', 'r')
 
-    r = f.read().replace("%%1%", gg.read())
-    r = r.replace("%%2%", gv.read())
+    r = f.read().replace("%%1%", replace(gg.read()))
+    # r = r.replace("%%2%", gv.read())
+    r = r.replace("%%2%", '')
 
     f.close()
     f = open('hitomi_get_image_list_v3.js', 'w+')
