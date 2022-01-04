@@ -3,6 +3,7 @@
 
 def replace(gg):
     gg = gg.replace('"use strict";', '')
+    gg = gg.replace("'use strict';", '')
     gg = gg.replace('return 3;', 'return o;')
     return gg
 

@@ -1,3 +1,4 @@
+var gg = {};
 var window = {};
 var document = {};
 var name = {};

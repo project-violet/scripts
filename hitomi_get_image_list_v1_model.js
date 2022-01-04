@@ -10,7 +10,7 @@ function create_download_url(id) {
 }
 
 %%2%
-var %%1%
+%%1%
 
 document.title="Hitomi.la"
 window.innerWidth=1;
