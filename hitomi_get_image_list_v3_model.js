@@ -12,7 +12,7 @@ function create_download_url(id) {
 %%2%
 %%1%
 
-document.title="Hitomi.la"
+document.title="Hiatomi.la"
 window.innerWidth=1;
 
 var gg_m = %%gg.m%;
