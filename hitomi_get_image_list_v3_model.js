@@ -15,8 +15,8 @@ function create_download_url(id) {
 document.title="Hiatomi.la"
 window.innerWidth=1;
 
-var gg_m = %%gg.m%;
-var gg_b = %%gg.b%;
+var gg_m = [%%gg.m%];
+var gg_b = "%%gg.b%";
 
 function hitomi_get_image_list() {
   files = galleryinfo["files"];
