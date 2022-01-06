@@ -20,7 +20,7 @@ jobs:
           node-version: '14'
       - run: |
           npm install
-          nodejs main.js
+          node main.js
       - name: Download
         run: | 
           rm -f gg.js
