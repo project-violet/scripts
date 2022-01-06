@@ -15,6 +15,9 @@ function create_download_url(id) {
 document.title="Hitomi.la"
 window.innerWidth=1;
 
+var gg_m = %%gg.m%;
+var gg_b = %%gg.b%;
+
 function hitomi_get_image_list() {
   files = galleryinfo["files"];
   // function test(id, files) {
@@ -30,12 +33,12 @@ function hitomi_get_image_list() {
     if (rr["haswebp"] == 0 || rr["haswebp"] == null) subdomainx = "b";
     x = parseInt(postfix[2] + postfix[0] + postfix[1], 16);
     if (!isNaN(x)) {
-      if (x < 4096) subdomainx = String.fromCharCode(97 + gg.m(x));
+      if (x < 4096) subdomainx = String.fromCharCode(97 + gg_m[x]);
       else subdomainx = String.fromCharCode(97 + 0);
     }
     if (rr["haswebp"] == 0 || rr["haswebp"] == null) {
       result.push(
-        `https://${subdomainx}b.hitomi.la/images/${gg.b + gg.s(hash)}/${hash}.${
+        `https://${subdomainx}b.hitomi.la/images/${gg_b + gg.s(hash)}/${hash}.${
           rr["name"].split(".").slice(-1)[0]
         }`
       );
