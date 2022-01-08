@@ -24,7 +24,7 @@ jobs:
       - name: Download
         run: | 
           rm -f gg.js
-          wget https://ltn.hitomi.la/gg.js --header "dataType: script"
+          wget https://ltn.hitomi.la/gg.js --header "referer: https://hitomi.la/"
           python3 sync.py
       - name: A
         run: |
