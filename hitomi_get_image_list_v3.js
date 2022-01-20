@@ -4375,15 +4375,24 @@ function hitomi_get_image_list() {
         }/${hash}.webp`
       );
     }
-    if (rr["hasavif"] == 1)
+    if (rr["haswebp"] == 1)
     {
       btresult.push(
-        `https://tn.hitomi.la/avifbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
+        `https://tn.hitomi.la/webpbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
       );
       stresult.push(
-        `https://${subdomainx}tn.hitomi.la/avifsmallbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
+        `https://${subdomainx}tn.hitomi.la/webpsmalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
       );
     }
+    // else if (rr["hasavif"] == 1)
+    // {
+    //   btresult.push(
+    //     `https://tn.hitomi.la/avifbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
+    //   );
+    //   stresult.push(
+    //     `https://${subdomainx}tn.hitomi.la/avifsmallbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
+    //   );
+    // }
     else 
     {
       btresult.push(
