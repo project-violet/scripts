@@ -53,12 +53,24 @@ function hitomi_get_image_list() {
         }/${hash}.webp`
       );
     }
-    btresult.push(
-      `https://tn.hitomi.la/bigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
-    );
-    stresult.push(
-      `https://${subdomainx}tn.hitomi.la/smalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
-    );
+    if (rr["hasavif"] == 1)
+    {
+      btresult.push(
+        `https://tn.hitomi.la/avifbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
+      );
+      stresult.push(
+        `https://${subdomainx}tn.hitomi.la/avifsmallbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
+      );
+    }
+    else 
+    {
+      btresult.push(
+        `https://tn.hitomi.la/bigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
+      );
+      stresult.push(
+        `https://${subdomainx}tn.hitomi.la/smalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
+      );
+    }
   }
   return JSON.stringify({
     btresult: btresult,
