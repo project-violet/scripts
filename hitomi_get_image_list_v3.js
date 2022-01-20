@@ -4381,7 +4381,7 @@ function hitomi_get_image_list() {
         `https://tn.hitomi.la/avifbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
       );
       stresult.push(
-        `https://${subdomainx}tn.hitomi.la/avifsmallbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
+        `https://${subdomainx}tn.hitomi.la/avifsmalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
       );
     }
     else 
