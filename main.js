@@ -2,10 +2,18 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({headless: false, args: [
+    '--no-sandbox']});
   const page = await browser.newPage();
 
-  await page.goto("https://hitomi.la/galleries/2103977.html");
+  while (true) {
+    try {
+      await page.goto("https://hitomi.la/", {waitUntil: "networkidle2"});
+      break;
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   page.on("console", async (msg) => {
     const msgArgs = msg.args();
