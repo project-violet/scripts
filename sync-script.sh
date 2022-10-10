@@ -7,5 +7,6 @@ wget https://ltn.hitomi.la/gg.js --header "referer: https://hitomi.la/"
 python3 sync.py
 git add gg.js
 git add hitomi_get_image_list_v3.js
+git commit -m "update"
 git pull
 git push
