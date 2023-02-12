@@ -2366,7 +2366,7 @@ function hitomi_get_image_list() {
     postfix = hash.substr(hash.length - 3);
     subdomainx = subdomain;
     if (rr["haswebp"] == 0 || rr["haswebp"] == null) subdomainx = "b";
-    x = parseInt(postfix[2] + postfix[1] + postfix[0], 16);
+    x = parseInt(postfix[2] + postfix[0] + postfix[1], 16);
     if (!isNaN(x)) {
       subdomainx = String.fromCharCode(97 + gg_m[x]);
     }
