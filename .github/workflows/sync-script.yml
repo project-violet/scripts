@@ -28,8 +28,8 @@ jobs:
           python3 sync.py
       - name: A
         run: |
-          git config --local user.email "violet.dev.master@gmail.com"
-          git config --local user.name "violet-dev"
+          git config --local user.email "violet@violet.com"
+          git config --local user.name "violet-bot"
           git config --global pull.rebase false
           git add gg.js
           git add hitomi_get_image_list_v3.js
