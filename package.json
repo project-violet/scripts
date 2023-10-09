@@ -13,6 +13,6 @@
   },
   "homepage": "https://github.com/project-violet/scripts#readme",
   "dependencies": {
-    "puppeteer": "^19.2.0"
+    "puppeteer": "^21.3.8"
   }
 }
