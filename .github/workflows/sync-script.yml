@@ -20,7 +20,8 @@ jobs:
             main.js
       - name: Test
         run: |
-          cd "${{ steps.puppeteer.outputs.home }}"
+          docker cp ${{ steps.puppeteer.outputs.container-id }}:${{ steps.puppeteer.outputs.home }}/0.txt 0.txt 
+          docker cp ${{ steps.puppeteer.outputs.container-id }}:${{ steps.puppeteer.outputs.home }}/1.txt 1.txt 
           ls -alh
       - name: Download
         run: | 
