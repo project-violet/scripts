@@ -20,7 +20,7 @@ jobs:
             main.js
       - name: Download
         run: | 
-          echo "${{ steps.puppeteer.output.home }}"
+          echo "${{ steps.puppeteer.outputs.home }}"
           rm -f gg.js
           wget https://ltn.hitomi.la/gg.js --header "referer: https://hitomi.la/"
           python3 sync.py
