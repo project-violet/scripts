@@ -13,12 +13,11 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-      - uses: actions/setup-node@v2
+      - uses: tj-actions/puppeteer@v4
+        id: puppeteer
         with:
-          node-version: '14'
-      - run: |
-          npm install
-          node main.js
+          files: |
+            main.js
       - name: Download
         run: | 
           rm -f gg.js
