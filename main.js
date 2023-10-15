@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 
 (async () => {
+  console.log('start');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -32,4 +33,5 @@ const fs = require("fs");
   });
 
   await browser.close();
+  console.log('end');
 })();
