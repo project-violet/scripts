@@ -26,6 +26,7 @@ function hitomi_get_image_list() {
     hash = rr["hash"];
     postfix = hash.substr(hash.length - 3);
     subdomainx = subdomain;
+    if (rr["hasavif"] == 1) rr["haswebp"] = 1;
     if (rr["haswebp"] == 0 || rr["haswebp"] == null) subdomainx = "b";
     x = parseInt(postfix[2] + postfix[0] + postfix[1], 16);
     if (!isNaN(x)) {
