@@ -5,78 +5,94 @@
 // Input:  $id     [int] - Hitomi.la Article Id
 // Output: $result [Map] - Image List, Thumbnail List
 
+const domain2 = 'gold-usergeneratedcontent.net';
+
 function create_download_url(id) {
   return "https://ltn.gold-usergeneratedcontent.net/galleries/" + id + ".js";
 }
 
-function gg_s(h) { var m = /(..)(.)$/.exec(h); return parseInt(m[2]+m[1], 16).toString(10); }
+function gg_s(h) { var m = /(..)(.)\$/.exec(h); return parseInt(m[2]+m[1], 16).toString(10); }
 
 var gg_m = [%%gg.m%];
 var gg_b = "%%gg.b%";
 
+
+
+function subdomain_from_url(url, base, dir) {
+        var retval = '';
+        if (!base) {
+                if (dir === 'webp') {
+                        retval = 'w';
+                } else if (dir === 'avif') {
+                        retval = 'a';
+                }
+        }
+        
+        var b = 16;
+        
+        var r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
+        var m = r.exec(url);
+        if (!m) {
+                return retval;
+        }
+        
+        var g = parseInt(m[2]+m[1], b);
+        if (!isNaN(g)) {
+                if (base) {
+                        retval = String.fromCharCode(97 + gg_m[g]) + base;
+                } else {
+                        retval = retval + (1+gg_m[g]);
+                }
+        }
+        
+        return retval;
+}
+
+
+function url_from_url(url, base, dir) {
+        return url.replace(/\/\/..?\.(?:gold-usergeneratedcontent\.net|hitomi\.la)\//, '//'+subdomain_from_url(url, base, dir)+'.'+domain2+'/');
+}
+
+function full_path_from_hash(hash) {
+        return gg_b+gg_s(hash)+'/'+hash;
+}
+
+
+function real_full_path_from_hash(hash) {
+        return hash.replace(/^.*(..)(.)\$/, '$2/$1/'+hash);
+}
+
+function url_from_hash(_galleryid, image, dir, ext) {
+        ext = ext || dir || image.name.split('.').pop();
+        if (dir === 'webp' || dir === 'avif') {
+                dir = '';
+        } else {
+                dir += '/';
+        }
+        
+        return 'https://a.'+domain2+'/'+dir+full_path_from_hash(image.hash)+'.'+ext;
+}
+
+function url_from_url_from_hash(_galleryid, image, dir, ext, base) {
+        if ('tn' === base) {
+                return url_from_url('https://a.'+domain2+'/'+dir+'/'+real_full_path_from_hash(image.hash)+'.'+ext, base);
+        }
+        return url_from_url(url_from_hash(_galleryid, image, dir, ext), base, dir);
+}
+
+
 function hitomi_get_image_list() {
   files = galleryinfo["files"];
-  // function test(id, files) {
-  number_of_frontends = 3;
-  subdomain = "a";
+  dir = "webp";
+  type = "webp";
+  base = "webp";
+  result = [];
   btresult = [];
   stresult = [];
-  result = [];
-  for (var rr of files) {
-    hash = rr["hash"];
-    postfix = hash.substr(hash.length - 3);
-    subdomainx = subdomain;
-    if (rr["hasavif"] == 1) rr["haswebp"] = 1;
-    if (rr["haswebp"] == 0 || rr["haswebp"] == null) subdomainx = "b";
-    x = parseInt(postfix[2] + postfix[0] + postfix[1], 16);
-    if (!isNaN(x)) {
-      if (x < 4096) subdomainx = String.fromCharCode(97 + gg_m[x]);
-      else subdomainx = String.fromCharCode(97 + 0);
-    }
-    if (rr["haswebp"] == 0 || rr["haswebp"] == null) {
-      result.push(
-        `https://${subdomainx}b.gold-usergeneratedcontent.net/images/${gg_b + gg_s(hash)}/${hash}.${
-          rr["name"].split(".").slice(-1)[0]
-        }`
-      );
-    } else if (hash == "")
-      result.push(`https://${subdomainx}a.gold-usergeneratedcontent.net/webp/${rr["name"]}.webp`);
-    else if (hash.length < 3)
-      result.push(`https://${subdomainx}a.gold-usergeneratedcontent.net/webp/${hash}.webp`);
-    else {
-      result.push(
-        `https://${subdomainx}a.gold-usergeneratedcontent.net/webp/${
-            gg_b + gg_s(hash)
-        }/${hash}.webp`
-      );
-    }
-    if (rr["haswebp"] == 1)
-    {
-      btresult.push(
-        `https://tn.gold-usergeneratedcontent.net/webpbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
-      );
-      stresult.push(
-        `https://${subdomainx}tn.gold-usergeneratedcontent.net/webpsmalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
-      );
-    }
-    // else if (rr["hasavif"] == 1)
-    // {
-    //   btresult.push(
-    //     `https://tn.hitomi.la/avifbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
-    //   );
-    //   stresult.push(
-    //     `https://${subdomainx}tn.hitomi.la/avifsmallbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.avif`
-    //   );
-    // }
-    else 
-    {
-      btresult.push(
-        `https://tn.gold-usergeneratedcontent.net/bigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
-      );
-      stresult.push(
-        `https://${subdomainx}tn.gold-usergeneratedcontent.net/smalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
-      );
-    }
+  for (var file of files) {
+    result.push(url_from_url(url_from_hash(0, file, dir), undefined, dir));
+    btresult.push(url_from_url_from_hash(0, file, 'webpbigtn', 'webp', 'tn'));
+    stresult.push(url_from_url_from_hash(0, file, type+'smalltn', type, 'tn'));
   }
   return JSON.stringify({
     btresult: btresult,
