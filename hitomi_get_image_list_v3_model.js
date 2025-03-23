@@ -63,7 +63,7 @@ function full_path_from_hash(hash) {
 
 
 function real_full_path_from_hash(hash) {
-        return hash.replace(/^.*(..)(.)\$/, '$2/$1/'+hash);
+        return hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash);
 }
 
 function url_from_hash(_galleryid, image, dir, ext) {
