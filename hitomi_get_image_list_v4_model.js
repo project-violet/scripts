@@ -35,17 +35,17 @@ function hitomi_get_image_list() {
     }
     if (rr["haswebp"] == 0 || rr["haswebp"] == null) {
       result.push(
-        `https://${subdomainx}b.hitomi.la/images/${gg_b + gg_s(hash)}/${hash}.${
+        `https://${subdomainx}b.gold-usergeneratedcontent.net/images/${gg_b + gg_s(hash)}/${hash}.${
           rr["name"].split(".").slice(-1)[0]
         }`
       );
     } else if (hash == "")
-      result.push(`https://${subdomainx}a.hitomi.la/webp/${rr["name"]}.webp`);
+      result.push(`https://${subdomainx}a.gold-usergeneratedcontent.net/webp/${rr["name"]}.webp`);
     else if (hash.length < 3)
-      result.push(`https://${subdomainx}a.hitomi.la/webp/${hash}.webp`);
+      result.push(`https://${subdomainx}a.gold-usergeneratedcontent.net/webp/${hash}.webp`);
     else {
       result.push(
-        `https://${subdomainx}a.hitomi.la/webp/${
+        `https://${subdomainx}a.gold-usergeneratedcontent.net/webp/${
             gg_b + gg_s(hash)
         }/${hash}.webp`
       );
@@ -53,10 +53,10 @@ function hitomi_get_image_list() {
     if (rr["haswebp"] == 1)
     {
       btresult.push(
-        `https://tn.hitomi.la/webpbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
+        `https://tn.gold-usergeneratedcontent.net/webpbigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
       );
       stresult.push(
-        `https://${subdomainx}tn.hitomi.la/webpsmalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
+        `https://${subdomainx}tn.gold-usergeneratedcontent.net/webpsmalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.webp`
       );
     }
     // else if (rr["hasavif"] == 1)
@@ -71,10 +71,10 @@ function hitomi_get_image_list() {
     else 
     {
       btresult.push(
-        `https://tn.hitomi.la/bigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
+        `https://tn.gold-usergeneratedcontent.net/bigtn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
       );
       stresult.push(
-        `https://${subdomainx}tn.hitomi.la/smalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
+        `https://${subdomainx}tn.gold-usergeneratedcontent.net/smalltn/${postfix[2]}/${postfix[0]}${postfix[1]}/${hash}.jpg`
       );
     }
   }
