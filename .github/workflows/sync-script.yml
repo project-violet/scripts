@@ -28,7 +28,7 @@ jobs:
       - name: Download
         run: | 
           rm -f gg.js
-          wget https://ltn.hitomi.la/gg.js --header "referer: https://hitomi.la/"
+          wget https://ltn.gold-usergeneratedcontent.net/gg.js --header "referer: https://hitomi.la/"
           python3 sync.py
       - name: A
         run: |
