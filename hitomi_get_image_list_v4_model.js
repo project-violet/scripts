@@ -6,7 +6,7 @@
 // Output: $result [Map] - Image List, Thumbnail List
 
 function create_download_url(id) {
-  return "https://ltn.hitomi.la/galleries/" + id + ".js";
+  return "https://ltn.gold-usergeneratedcontent.net/galleries/" + id + ".js";
 }
 
 function gg_s(h) { var m = /(..)(.)$/.exec(h); return parseInt(m[2]+m[1], 16).toString(10); }
